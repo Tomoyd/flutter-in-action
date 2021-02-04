@@ -11,4 +11,5 @@ List<Map> demoData = [
   {"path": Router.GESTURE_DEMO, "pageName": "手势识别"},
   {"path": Router.EVENT_BUS, "pageName": "事件总线"},
   {"path": Router.NOTICE_DEMO, "pageName": "通知"},
+  {"path": Router.ANIMATION_DEMO, "pageName": "动画Demo"},
 ];

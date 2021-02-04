@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/animation/animation_demo.dart';
 import 'package:myapp/pages/card_exp.dart';
 import 'package:myapp/pages/dialog.dart';
 import 'package:myapp/pages/event_and_notice/event_bus.dart';
@@ -41,6 +42,8 @@ class Router {
   static const String EVENT_BUS = "/eventBus";
 
   static const String NOTICE_DEMO = "/notice";
+
+  static const String ANIMATION_DEMO = "/animation";
 
   static MaterialPageRoute routeGenerator(RouteSettings setting) {
     return MaterialPageRoute(builder: (context) {

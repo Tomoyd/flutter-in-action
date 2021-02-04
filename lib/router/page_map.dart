@@ -18,5 +18,6 @@ Map<String, Widget Function(Map)> _pageMap = {
   Router.ORG_POINTER_EVENT: (routeParam) => ListenerWidgetDemo(),
   Router.GESTURE_DEMO: (routeParam) => GestureDemo(),
   Router.EVENT_BUS: (routeParam) => EventBusDemo(),
-  Router.NOTICE_DEMO: (routeParam) => NotificationDemo()
+  Router.NOTICE_DEMO: (routeParam) => NotificationDemo(),
+  Router.ANIMATION_DEMO: (routeParam) => AnimationDemo()
 };
