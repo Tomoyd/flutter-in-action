@@ -10,6 +10,8 @@ import 'package:myapp/pages/full_bottom.dart';
 import 'package:myapp/pages/function_widget.dart';
 import 'package:myapp/pages/future_widget.dart';
 import 'package:myapp/pages/home.dart';
+import 'package:myapp/pages/hook/flutter_hooks_test.dart';
+import 'package:myapp/pages/hook/test_hook.dart';
 import 'package:myapp/pages/inherited_widget_test.dart';
 import 'package:myapp/pages/layout_widget.dart';
 import 'package:myapp/pages/theme_page.dart';
@@ -39,11 +41,13 @@ class Router {
   static const String ORG_POINTER_EVENT = "/pointer";
 
   static const String GESTURE_DEMO = "/gesture";
-  static const String EVENT_BUS = "/eventBus";
+  static const String EVENT_BUS = "/event_bus";
 
   static const String NOTICE_DEMO = "/notice";
 
   static const String ANIMATION_DEMO = "/animation";
+
+  static const String HOOK_TEST = "/hook_test";
 
   static MaterialPageRoute routeGenerator(RouteSettings setting) {
     return MaterialPageRoute(builder: (context) {

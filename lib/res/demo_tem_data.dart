@@ -12,4 +12,5 @@ List<Map> demoData = [
   {"path": Router.EVENT_BUS, "pageName": "事件总线"},
   {"path": Router.NOTICE_DEMO, "pageName": "通知"},
   {"path": Router.ANIMATION_DEMO, "pageName": "动画Demo"},
+  {"path": Router.HOOK_TEST, "pageName": "Hooks"},
 ];
