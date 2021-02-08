@@ -28,10 +28,8 @@ class _EffectMemory {
 _Hook _workInProgressHook;
 
 _Hook _createWorkInProgressHooks() {
-  print("99999999999");
-  print(context.hook);
   final currentContext = context;
-  print("currentContext.hook${currentContext.hook}");
+
   if (_workInProgressHook == null) {
     _workInProgressHook = currentContext.hook;
   } else {

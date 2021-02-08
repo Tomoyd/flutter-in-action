@@ -1,24 +1,25 @@
 part of "hooks.dart";
 
-_genSetState<T>(HookElement currentContext, int i) {
+_genSetState<T>(_Hook _currentHook, HookElement currentContext) {
   return (T val) {
-    currentContext.states[i] = val;
+    _currentHook.memorizedData.state = val;
     currentContext.markNeedsBuild();
   };
 }
 
 StateType<T> useState<T>(T initState) {
-  int i = context.index++;
+  final currentHook = _createWorkInProgressHooks();
 
-  print("index${context.states.toString()}");
-  print("state");
-  if (context.states.length < context.index) {
-    context.states.add(initState);
+  if (currentHook.memorizedData == null) {
+    currentHook.memorizedData =
+        StateType<T>(initState, _genSetState<T>(currentHook, context));
   }
 
-  Function(T data) setState = _genSetState<T>(context, i);
+  if (currentHook.memorizedData is StateType) {
+    return currentHook.memorizedData;
+  }
 
-  return StateType(context.states[i], setState);
+  return null;
 }
 
 class StateType<T> {

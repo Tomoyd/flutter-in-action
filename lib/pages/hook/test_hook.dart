@@ -10,8 +10,8 @@ class CustomHookText extends HookWidget {
     final text = useState<int>(1);
     // final text2 = useState<int>(3);
     useEffect(() {
-      print("effect");
-    });
+      print("effec111t");
+    }, []);
     return CommonScaffold(
         title: "test hooks",
         body: Column(children: [

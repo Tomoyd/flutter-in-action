@@ -6,9 +6,9 @@ _EffectMemory _pushEffectMemory(needUpdate, create, deeps, destroy) {
   if (context.effectHeader == null) {
     context.effectHeader = effect.next = effect;
   } else {
-    var firstEffect = context.effectHeader.next;
+    var currentEffect = context.effectHeader.next;
     context.effectHeader.next = effect;
-    effect.next = firstEffect;
+    effect.next = currentEffect.next;
     context.effectHeader = effect;
   }
   return effect;
@@ -16,6 +16,7 @@ _EffectMemory _pushEffectMemory(needUpdate, create, deeps, destroy) {
 
 useEffect(VoidCallback create, [List deeps]) {
   final currentHook = _createWorkInProgressHooks();
+
   _EffectMemory preData = currentHook.memorizedData;
 
   if (isInputEqual(preData?.deeps, deeps)) {

@@ -4,19 +4,17 @@ class HookElement extends StatelessElement {
   HookElement(StatelessWidget widget) : super(widget);
 
   _Hook hook = _Hook();
-  int index = 0;
   _EffectMemory effectHeader;
-  List states = [];
+
   void resetIndexContext() {
-    index = 0;
+    _workInProgressHook = null;
     context = this;
-    print("context.hook${context.hook}");
   }
 
   @override
   Widget build() {
     // TODO: implement build
-    print("111111111111111111hook${hook}");
+
     resetIndexContext();
     WidgetsBinding.instance.addPostFrameCallback(effect);
     return super.build();
@@ -33,8 +31,8 @@ class HookElement extends StatelessElement {
           if (destroy == null) {
             effectHeader.destroy = destroy;
           }
-          effectHeader = effectHeader.next;
         }
+        effectHeader = effectHeader.next;
       } while (effectHeader?.next != firstEffect);
     }
   }
