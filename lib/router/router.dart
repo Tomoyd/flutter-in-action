@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/animation/animation_demo.dart';
 import 'package:myapp/pages/card_exp.dart';
+import 'package:myapp/pages/custom_widget/turn_box.dart';
 import 'package:myapp/pages/dialog.dart';
 import 'package:myapp/pages/event_and_notice/event_bus.dart';
 import 'package:myapp/pages/event_and_notice/gesture.dart';
@@ -13,6 +14,7 @@ import 'package:myapp/pages/home.dart';
 import 'package:myapp/pages/hook/flutter_hooks_test.dart';
 import 'package:myapp/pages/hook/test_hook.dart';
 import 'package:myapp/pages/inherited_widget_test.dart';
+import 'package:myapp/pages/io_http/file_operation.dart';
 import 'package:myapp/pages/layout_widget.dart';
 import 'package:myapp/pages/theme_page.dart';
 import 'package:myapp/pages/tip.dart';
@@ -48,6 +50,10 @@ class Router {
   static const String ANIMATION_DEMO = "/animation";
 
   static const String HOOK_TEST = "/hook_test";
+
+  static const String CUSTOM_WIDGET = "/custom";
+
+  static const String FILE = "/get_file";
 
   static MaterialPageRoute routeGenerator(RouteSettings setting) {
     return MaterialPageRoute(builder: (context) {

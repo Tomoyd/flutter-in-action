@@ -21,4 +21,6 @@ Map<String, Widget Function(Map)> _pageMap = {
   Router.NOTICE_DEMO: (routeParam) => NotificationDemo(),
   Router.ANIMATION_DEMO: (routeParam) => AnimationDemo(),
   Router.HOOK_TEST: (routeParam) => CustomHookText(),
+  Router.CUSTOM_WIDGET: (routeParam) => CustomWidget(),
+  Router.FILE: (routeParam) => FileOperation()
 };
