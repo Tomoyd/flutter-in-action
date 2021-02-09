@@ -14,5 +14,5 @@ List<Map> demoData = [
   {"path": Router.ANIMATION_DEMO, "pageName": "动画Demo"},
   {"path": Router.HOOK_TEST, "pageName": "Hooks"},
   {"path": Router.CUSTOM_WIDGET, "pageName": "自定义组件"},
-  {"path": Router.FILE, "pageName": "文件操作"},
+  {"path": Router.IO_HTTP_DEMO, "pageName": "文件与网络请求"},
 ];

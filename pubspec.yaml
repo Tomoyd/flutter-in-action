@@ -24,6 +24,8 @@ dependencies:
   json_annotation: ^2.0.0
   # flutter_hooks: ^0.10.0
   path_provider: ^0.4.1
+  web_socket_channel: ^1.1.0
+  dio: ^3.0.10
   flutter:
     sdk: flutter
 

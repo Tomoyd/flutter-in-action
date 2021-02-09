@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:myapp/hooks/hooks.dart';
-import 'package:myapp/widgets/common_scaffold.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileOperation extends HookWidget {
@@ -31,6 +30,9 @@ class FileOperation extends HookWidget {
       _readCounter().then((int value) {
         counter.setState(value);
       });
+      return () {
+        print("****cleanup*****");
+      };
     }, []);
 
     Future<Null> _incrementCounter() async {
@@ -42,14 +44,11 @@ class FileOperation extends HookWidget {
     }
 
     // TODO: implement build
-    return CommonScaffold(
-      title: "文件操作",
-      body: Column(
-        children: <Widget>[
-          Text("点击了${counter.state}"),
-          FlatButton(onPressed: _incrementCounter, child: Text("add"))
-        ],
-      ),
+    return Column(
+      children: <Widget>[
+        Text("点击了${counter.state}"),
+        FlatButton(onPressed: _incrementCounter, child: Text("add"))
+      ],
     );
   }
 }

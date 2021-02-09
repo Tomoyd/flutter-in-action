@@ -23,18 +23,19 @@ class HookElement extends StatelessElement {
   void effect(Duration duration) {
     if (effectHeader == null) {
       return;
-    } else {
-      var firstEffect = effectHeader.next;
-      do {
-        if (effectHeader.needUpdate) {
-          var destroy = effectHeader.callback();
-          if (destroy == null) {
-            effectHeader.destroy = destroy;
-          }
-        }
-        effectHeader = effectHeader.next;
-      } while (effectHeader?.next != firstEffect);
     }
+    var firstEffect = effectHeader.next;
+    do {
+      effectHeader = effectHeader.next;
+      if (effectHeader.needUpdate) {
+        var destroy = effectHeader.callback();
+
+        if (destroy != null && destroy is Function) {
+          print("destroy$destroy${destroy is Function}");
+          effectHeader.destroy = destroy;
+        }
+      }
+    } while (effectHeader?.next != firstEffect);
   }
 
   @override
@@ -42,8 +43,24 @@ class HookElement extends StatelessElement {
     super.rebuild();
   }
 
+  doCleanUp() {
+    if (effectHeader == null) {
+      return;
+    }
+    var firstEffect = effectHeader.next;
+    do {
+      effectHeader = effectHeader.next;
+      var destroy = effectHeader.destroy;
+      if (destroy != null && destroy is Function) {
+        destroy();
+      }
+    } while (effectHeader?.next != firstEffect);
+  }
+
   @override
   void unmount() {
+    print("unmount");
+    doCleanUp();
     dispose();
     // TODO: implement unmount
     super.unmount();
