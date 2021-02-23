@@ -15,6 +15,7 @@ import 'package:myapp/pages/hook/test_hook.dart';
 import 'package:myapp/pages/inherited_widget_test.dart';
 import 'package:myapp/pages/io_http/demo.dart';
 import 'package:myapp/pages/layout_widget.dart';
+import 'package:myapp/pages/search_demo/search_demo.dart';
 import 'package:myapp/pages/theme_page.dart';
 import 'package:myapp/pages/tip.dart';
 part "page_map.dart";
@@ -53,6 +54,7 @@ class Router {
   static const String CUSTOM_WIDGET = "/custom";
 
   static const String IO_HTTP_DEMO = "/io_http_demo";
+  static const String SEARCH_DEMO = "/search_demo";
 
   static MaterialPageRoute routeGenerator(RouteSettings setting) {
     return MaterialPageRoute(builder: (context) {

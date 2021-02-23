@@ -22,5 +22,6 @@ Map<String, Widget Function(Map)> _pageMap = {
   Router.ANIMATION_DEMO: (routeParam) => AnimationDemo(),
   Router.HOOK_TEST: (routeParam) => CustomHookText(),
   Router.CUSTOM_WIDGET: (routeParam) => CustomWidget(),
-  Router.IO_HTTP_DEMO: (routeParam) => IOHttpDemo()
+  Router.IO_HTTP_DEMO: (routeParam) => IOHttpDemo(),
+  Router.SEARCH_DEMO: (routeParam) => SearchDemo()
 };
