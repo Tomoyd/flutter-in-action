@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components/filter_window/filter_window.dart';
+import 'package:myapp/components/filter_window/show_top_sheet.dart';
 import 'package:myapp/widgets/common_scaffold.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:top_modal_sheet/top_modal_sheet.dart';
@@ -37,8 +38,14 @@ class _SearchDemoState extends State<SearchDemo> {
         title: "Search Demo",
         body: Column(
           children: [
-            FilterWindow<Map<String, dynamic>>(
-                filters: _filters, filterItemBuilder: _filterBuilder),
+            FilterWindow(
+                filters: _filters,
+                filterItemBuilder: _filterBuilder,
+                onPick: (context, data) {
+                  showTopSheet(context,
+                      begin: SheetBegin.APP_BAR,
+                      content: Container(child: Text("$data")));
+                }),
             RaisedButton(
               key: _buttonKey,
               onPressed: () async {

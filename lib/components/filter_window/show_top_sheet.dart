@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/filter_window/filter_window.dart';
 
 class TopSheetModal extends StatefulWidget {
   TopSheetModal({Key key, this.child, this.top = 0}) : super(key: key);
@@ -113,18 +114,23 @@ class _TopSheetModalState extends State<TopSheetModal>
   }
 }
 
+enum SheetBegin { TOP, APP_BAR }
+
 showTopSheet(
   BuildContext context, {
-  bool fromTop = false,
+  SheetBegin begin,
   @required Widget content,
 }) {
+  print(FilterWindow.of(context).containerKey.currentContext.size);
   double height = 0;
-  if (!fromTop) {
+  if (begin != SheetBegin.TOP) {
     try {
       height = Scaffold.of(context).widget.appBar?.preferredSize?.height ?? 0;
     } catch (e) {
       height = 0;
     }
+  }
+  if (begin == null) {
     height += context.size.height;
   }
 

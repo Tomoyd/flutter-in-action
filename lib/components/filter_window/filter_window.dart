@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/filter_window/show_top_sheet.dart';
+import 'package:myapp/hooks/hooks.dart';
 
 class FilterWindow<T> extends StatefulWidget {
   FilterWindow(
       {Key key,
       this.child,
       @required this.filters,
+      @required this.onPick,
       @required this.filterItemBuilder})
       : super(key: key);
   final Widget child;
   final List<T> filters;
   final FilterItemBuilder<T> filterItemBuilder;
+  final PickFunction<T> onPick;
+
   static _FilterWindowState of(
     BuildContext context,
   ) =>
@@ -20,7 +23,7 @@ class FilterWindow<T> extends StatefulWidget {
   _FilterWindowState createState() => _FilterWindowState();
 }
 
-class _FilterWindowState extends State<FilterWindow> {
+class _FilterWindowState<T> extends State<FilterWindow> {
   GlobalKey containerKey = GlobalKey();
 
   @override
@@ -30,20 +33,18 @@ class _FilterWindowState extends State<FilterWindow> {
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: widget.filters.asMap().keys.map((i) {
+            T item = widget.filters[i];
             return Expanded(
                 child: GestureDetector(
                     onTap: () {
-                      showTopSheet(containerKey.currentContext,
-                          content: Container(
-                            child: Text("12345"),
-                          ));
+                      widget.onPick(containerKey.currentContext, item);
                     },
-                    child: widget.filterItemBuilder(widget.filters[i], i)));
+                    child: widget.filterItemBuilder(item, i)));
           }).toList()),
     );
   }
 }
 
-
+typedef PickFunction<T> = void Function(BuildContext context, T data);
 
 typedef FilterItemBuilder<T> = Widget Function(T data, int index);
