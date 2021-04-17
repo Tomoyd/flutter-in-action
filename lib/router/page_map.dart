@@ -1,27 +1,28 @@
 part of "router.dart";
 
 Map<String, Widget Function(Map)> _pageMap = {
-  Router.HOME: (routeParam) => MyHomePage(
+  MyRouter.HOME: (routeParam) => MyHomePage(
         title: "home",
       ),
-  Router.TIP: (routeParam) => TipPage(
+  MyRouter.TIP: (routeParam) => TipPage(
         tipMsg: routeParam["tipMsg"],
       ),
-  Router.DEMO: (routeParam) => LayoutDemo(),
-  Router.WILL_POP: (routeParam) => WillPopScopeTest(),
-  Router.INHERITED_WIDGET: (routeParam) => InheritedWidgetTest(),
-  Router.SHOP_CART: (routeParam) => ShopCarPage(),
-  Router.THEME_PAGE: (routeParam) => ThemePage(),
-  Router.FUTURE_PAGE: (routeParam) => FutureBuilderPage(),
-  Router.DIALOG_DEMO: (routeParam) => DialogDemo(),
-  Router.FULL_BOTTOM_SHEET: (routeParam) => FullBottomSheet(),
-  Router.ORG_POINTER_EVENT: (routeParam) => ListenerWidgetDemo(),
-  Router.GESTURE_DEMO: (routeParam) => GestureDemo(),
-  Router.EVENT_BUS: (routeParam) => EventBusDemo(),
-  Router.NOTICE_DEMO: (routeParam) => NotificationDemo(),
-  Router.ANIMATION_DEMO: (routeParam) => AnimationDemo(),
-  Router.HOOK_TEST: (routeParam) => CustomHookText(),
-  Router.CUSTOM_WIDGET: (routeParam) => CustomWidget(),
-  Router.IO_HTTP_DEMO: (routeParam) => IOHttpDemo(),
-  Router.SEARCH_DEMO: (routeParam) => SearchDemo()
+  MyRouter.Filter_DEMO: (routeParam) => FilterPage(),
+  MyRouter.DEMO: (routeParam) => LayoutDemo(),
+  MyRouter.WILL_POP: (routeParam) => WillPopScopeTest(),
+  MyRouter.INHERITED_WIDGET: (routeParam) => InheritedWidgetTest(),
+  MyRouter.SHOP_CART: (routeParam) => ShopCarPage(),
+  MyRouter.THEME_PAGE: (routeParam) => ThemePage(),
+  MyRouter.FUTURE_PAGE: (routeParam) => FutureBuilderPage(),
+  MyRouter.DIALOG_DEMO: (routeParam) => DialogDemo(),
+  MyRouter.FULL_BOTTOM_SHEET: (routeParam) => FullBottomSheet(),
+  MyRouter.ORG_POINTER_EVENT: (routeParam) => ListenerWidgetDemo(),
+  MyRouter.GESTURE_DEMO: (routeParam) => GestureDemo(),
+  MyRouter.EVENT_BUS: (routeParam) => EventBusDemo(),
+  MyRouter.NOTICE_DEMO: (routeParam) => NotificationDemo(),
+  MyRouter.ANIMATION_DEMO: (routeParam) => AnimationDemo(),
+  MyRouter.HOOK_TEST: (routeParam) => CustomHookText(),
+  MyRouter.CUSTOM_WIDGET: (routeParam) => CustomWidget(),
+  MyRouter.IO_HTTP_DEMO: (routeParam) => IOHttpDemo(),
+  MyRouter.SEARCH_DEMO: (routeParam) => SearchDemo()
 };

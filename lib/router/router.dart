@@ -7,6 +7,7 @@ import 'package:myapp/pages/event_and_notice/event_bus.dart';
 import 'package:myapp/pages/event_and_notice/gesture.dart';
 import 'package:myapp/pages/event_and_notice/listener.dart';
 import 'package:myapp/pages/event_and_notice/notice_widget.dart';
+import 'package:myapp/pages/filter_page/filter_page.dart';
 import 'package:myapp/pages/full_bottom.dart';
 import 'package:myapp/pages/function_widget.dart';
 import 'package:myapp/pages/future_widget.dart';
@@ -20,7 +21,7 @@ import 'package:myapp/pages/theme_page.dart';
 import 'package:myapp/pages/tip.dart';
 part "page_map.dart";
 
-class Router {
+class MyRouter {
   static const String HOME = "/";
 
   static const String TIP = "/tip";
@@ -55,6 +56,7 @@ class Router {
 
   static const String IO_HTTP_DEMO = "/io_http_demo";
   static const String SEARCH_DEMO = "/search_demo";
+  static const String Filter_DEMO = "/filter_demo";
 
   static MaterialPageRoute routeGenerator(RouteSettings setting) {
     return MaterialPageRoute(builder: (context) {

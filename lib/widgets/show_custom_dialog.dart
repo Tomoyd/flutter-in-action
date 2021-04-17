@@ -5,7 +5,7 @@ Future<T> showCustomDialog<T>(
     {@required BuildContext context,
     bool barrierDismissible = true,
     WidgetBuilder builder}) {
-  final ThemeData themeData = Theme.of(context, shadowThemeOnly: true);
+  final ThemeData themeData = Theme.of(context);
 
   return showGeneralDialog(
       context: context,

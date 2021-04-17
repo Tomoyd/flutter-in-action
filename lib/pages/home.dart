@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/res/demo_tem_data.dart';
 import 'package:myapp/router/router.dart';
+import 'package:myapp/widgets/common_scaffold.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -43,12 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
+    return CommonScaffold(
+      title: "主页",
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.

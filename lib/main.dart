@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      onGenerateRoute: Router.routeGenerator,
+      onGenerateRoute: MyRouter.routeGenerator,
       navigatorObservers: [MyNavigatorObserver()],
       onUnknownRoute: (RouteSettings settings) => MaterialPageRoute(
           builder: (context) => SafeArea(child: Text("unKnown"))),
@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
     );

@@ -17,7 +17,7 @@ class CommonScaffold extends StatelessWidget {
         title: Text(title),
         actions: rightAction == null ? rightAction : <Widget>[rightAction],
       ),
-      body: SafeArea(child: body),
+      body: SafeArea(child:SingleChildScrollView(child: body) ),
     );
   }
 }
