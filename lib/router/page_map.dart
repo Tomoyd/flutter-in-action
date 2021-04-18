@@ -7,6 +7,7 @@ Map<String, Widget Function(Map)> _pageMap = {
   MyRouter.TIP: (routeParam) => TipPage(
         tipMsg: routeParam["tipMsg"],
       ),
+  MyRouter.TRANSFORM_PAGE: (routeParam) => TransformPage(),
   MyRouter.Filter_DEMO: (routeParam) => FilterPage(),
   MyRouter.DEMO: (routeParam) => LayoutDemo(),
   MyRouter.WILL_POP: (routeParam) => WillPopScopeTest(),

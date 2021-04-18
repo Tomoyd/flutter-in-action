@@ -1,6 +1,7 @@
 import 'package:myapp/router/router.dart';
 
 List<Map> demoData = [
+  {"path": MyRouter.TRANSFORM_PAGE, "pageName": "TransformPage"},
   {"path": MyRouter.Filter_DEMO, "pageName": "FilterPage"},
   {"path": MyRouter.SHOP_CART, "pageName": "Provider共享数据"},
   {"path": MyRouter.WILL_POP, "pageName": "阻止POP"},
