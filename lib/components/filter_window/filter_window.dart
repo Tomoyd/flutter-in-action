@@ -25,6 +25,7 @@ class FilterWindow<T> extends StatefulWidget {
 
 class _FilterWindowState<T> extends State<FilterWindow> {
   GlobalKey containerKey = GlobalKey();
+  String name = "";
 
   @override
   Widget build(BuildContext context) {

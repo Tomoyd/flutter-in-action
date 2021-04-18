@@ -12,29 +12,38 @@ class FilterPage extends StatefulWidget {
 class _FilterPageState extends State<FilterPage> {
   Widget _child = null;
   String _key = "0";
+
   @override
   Widget build(BuildContext context) {
     return CommonScaffold(
       title: "filterPage",
       body: FilterSheet(
-          result: Text("888"),
-          trigger: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: ["1", "2", "3"]
-                  .map((e) => Expanded(
-                          child: InkWell(
-                        onTap: () {
-                          print("123");
-                          setState(() {
-                            _child =
-                                Container(color: Colors.white, child: Text(e));
-                          });
-                        },
-                        child: Container(
-                            alignment: Alignment.center, child: Text(e)),
-                      )))
-                  .toList()),
-          child: _child),
+          result: GestureDetector(
+            child: Text("888"),
+            onTap: () {
+              print("666");
+            },
+          ),
+          listData: ["1", "22", "333"],
+          listItem: (item, index) {
+            return Text(item);
+          },
+          children: [
+            Builder(builder: (context) {
+              return GestureDetector(
+                  child: Text("123"),
+                  onTap: () {
+                    print(FilterSheet.of(context).currentKey);
+                    FilterSheet.of(context).setState(() {
+                      FilterSheet.of(context).currentKey = -1;
+                    });
+                  });
+            }),
+            Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [Text("1"), Text("2"), Text("3")]),
+            Container(child: Text("6666"))
+          ]),
     );
   }
 }

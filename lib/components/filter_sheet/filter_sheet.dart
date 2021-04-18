@@ -1,26 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/filter_sheet/animated.dart';
 
-class FilterSheet extends StatefulWidget {
+class FilterSheet<T> extends StatefulWidget {
   final Widget trigger;
-  final Widget child;
+  final List<Widget> children;
   final Widget result;
-  FilterSheet({Key key, this.child, this.result, this.trigger})
+  final List<T> listData;
+  final ListItem<T> listItem;
+  FilterSheet(
+      {Key key,
+      this.children,
+      this.result,
+      this.trigger,
+      this.listData,
+      this.listItem})
       : super(key: key);
+  static _FilterSheetState of(
+    BuildContext context,
+  ) =>
+      context.findAncestorStateOfType<_FilterSheetState>();
+
+  static close(context) {
+    FilterSheet.of(context).setState(() {
+      FilterSheet.of(context).currentKey = -1;
+    });
+  }
 
   @override
   _FilterSheetState createState() => _FilterSheetState();
 }
 
 class _FilterSheetState extends State<FilterSheet> {
-  final _triggerKey = GlobalKey();
+  GlobalKey _triggerKey = GlobalKey();
   double _height = 0;
+  int currentKey = -1;
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
     // TODO: implement initState
-
     super.initState();
+  }
+
+  List<Widget> _triggerItem() {
+    return widget.listData
+        .asMap()
+        .map((key, e) => MapEntry(
+            key,
+            Expanded(
+                child: GestureDetector(
+              child: widget.listItem(e, key),
+              onTap: () {
+                if (currentKey == key) {
+                  setState(() {
+                    currentKey = -1;
+                  });
+                } else {
+                  setState(() {
+                    currentKey = key;
+                  });
+                }
+              },
+            ))))
+        .values
+        .toList();
   }
 
   _afterLayout(_t) {
@@ -46,19 +89,34 @@ class _FilterSheetState extends State<FilterSheet> {
             Container(
               alignment: Alignment.topLeft,
               color: Colors.yellow,
-              child: widget.trigger,
+              child: Row(children: _triggerItem()),
               key: _triggerKey,
             ),
-            widget.child == null
+            currentKey == -1
                 ? Container()
                 : Expanded(
-                    child: Container(
-                        alignment: Alignment.topLeft,
-                        color: Colors.black38,
-                        child: widget.child))
+                    child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            currentKey = -1;
+                          });
+                        },
+                        child: Container(
+                            alignment: Alignment.topLeft,
+                            color: Colors.black38,
+                            child: GestureDetector(
+                                onTap: () {},
+                                child: AnimatedExpend(
+                                    child: Container(
+                                  width: double.infinity,
+                                  color: Colors.white,
+                                  child: widget.children[currentKey],
+                                ))))))
           ]),
         ],
       ),
     );
   }
 }
+
+typedef ListItem<T> = Widget Function(T data, int index);

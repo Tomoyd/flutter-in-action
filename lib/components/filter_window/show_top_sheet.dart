@@ -121,7 +121,7 @@ showTopSheet(
   SheetBegin begin,
   @required Widget content,
 }) {
-  print(FilterWindow.of(context).containerKey.currentContext.size);
+  print(FilterWindow.of(context).name);
   double height = 0;
   if (begin != SheetBegin.TOP) {
     try {
