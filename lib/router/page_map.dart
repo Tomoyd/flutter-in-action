@@ -25,5 +25,6 @@ Map<String, Widget Function(Map)> _pageMap = {
   MyRouter.HOOK_TEST: (routeParam) => CustomHookText(),
   MyRouter.CUSTOM_WIDGET: (routeParam) => CustomWidget(),
   MyRouter.IO_HTTP_DEMO: (routeParam) => IOHttpDemo(),
-  MyRouter.SEARCH_DEMO: (routeParam) => SearchDemo()
+  MyRouter.SEARCH_DEMO: (routeParam) => SearchDemo(),
+  MyRouter.COMMON_WIDGET:(routeParam)=> CommonWidgets()
 };

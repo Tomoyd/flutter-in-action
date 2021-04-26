@@ -13,10 +13,10 @@ class CommonScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(title),
-        actions: rightAction == null ? rightAction : <Widget>[rightAction],
-      ),
+      // appBar: AppBar(
+      //   title: Text(title),
+      //   actions: rightAction == null ? rightAction : <Widget>[rightAction],
+      // ),
       body: SafeArea(child: body),
     );
   }

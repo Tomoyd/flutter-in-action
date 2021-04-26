@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/animation/animation_demo.dart';
 import 'package:myapp/pages/card_exp.dart';
+import 'package:myapp/pages/common_widgets/common_widgets.dart';
 import 'package:myapp/pages/complate_ui/transform_page.dart';
 import 'package:myapp/pages/custom_widget/turn_box.dart';
 import 'package:myapp/pages/dialog.dart';
@@ -59,6 +60,7 @@ class MyRouter {
   static const String SEARCH_DEMO = "/search_demo";
   static const String Filter_DEMO = "/filter_demo";
   static const String TRANSFORM_PAGE = "/transform_page";
+  static const String COMMON_WIDGET = "/common_widget";
 
   static MaterialPageRoute routeGenerator(RouteSettings setting) {
     return MaterialPageRoute(builder: (context) {
